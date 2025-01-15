@@ -21,3 +21,18 @@ jobs:
         run: some_command
         env:
           SOME_SECRET: ${{ secrets.SOME_SECRET }}
+      - name: taint tracking
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id}}
+          name: taint
+      - name: save pr id
+        id: pr
+        run: echo "::set-output name=id::${<pr-id.txt}"
+      - name: bash check
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          message=$(echo "$TITLE" | grep -oP '[{\[][^}\]]+[}\]] | sed 's/{\|}\|\[\|]//g')
+          echo "message=$message" >> GITHUB_ENV
+      
