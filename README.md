@@ -1,4 +1,7 @@
 [![CodeQL](https://github.com/contosoenterprise/new-repo-1/actions/workflows/codeql.yml/badge.svg)](https://github.com/contosoenterprise/new-repo-1/actions/workflows/codeql.yml)
+
+# Forking lovely 🍴
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
